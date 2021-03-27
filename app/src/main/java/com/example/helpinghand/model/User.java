@@ -6,13 +6,23 @@ public class User {
     private String userName;
     private String email;
     private String password;
+    private String firstName;
+    private String postcode;
+    private int group;
+    private int admin;
 
-    public User(int id, String userName, String email, String password){
+    public User(int id, String userName, String email, String password, String firstName, String postcode, int group, int admin){
         this.id = id;
         this.userName = userName;
         this.email = email;
         this.password = password;
+        this.firstName = "";
+        this.postcode = "";
+        this.group = 0;
+        this.admin = 0;
+
     }
+
 
     public int getId() {
         return id;
@@ -44,6 +54,38 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getPostcode() {
+        return postcode;
+    }
+
+    public void setPostcode(String postcode) {
+        this.postcode = postcode;
+    }
+
+    public int getGroup() {
+        return group;
+    }
+
+    public void setGroup(int group) {
+        this.group = group;
+    }
+
+    public int getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(int admin) {
+        this.admin = admin;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
 }

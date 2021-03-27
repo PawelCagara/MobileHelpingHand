@@ -9,10 +9,11 @@
         android:id="@+id/textView"
         android:layout_width="238dp"
         android:layout_height="133dp"
-        android:layout_marginBottom="246dp"
+        android:layout_marginBottom="104dp"
         android:text="Login successful"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -34,4 +35,23 @@
         android:text="Profile"
         app:layout_constraintEnd_toStartOf="@+id/buttonLogout"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonHelpers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="178dp"
+        android:text="I want to help"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonNeedHelper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:text="I need some help"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonHelpers"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

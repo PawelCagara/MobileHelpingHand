@@ -23,25 +23,19 @@ public class MainActivity extends AppCompatActivity {
             StrictMode.setThreadPolicy(policy);
         }
 
-        Button login = (Button) findViewById(R.id.loginButton);
-        Button register = (Button) findViewById(R.id.registerButton);
+        Button login =  findViewById(R.id.loginButton);
+        Button register =  findViewById(R.id.registerButton);
 
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent login = new Intent(MainActivity.this, Login.class);
-                startActivity(login);
-            }
+        login.setOnClickListener(v -> {
+            Intent login1 = new Intent(MainActivity.this, Login.class);
+            startActivity(login1);
         });
 
 
 
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent register = new Intent(MainActivity.this, Register.class);
-                startActivity(register);
-            }
+        register.setOnClickListener(v -> {
+            Intent register1 = new Intent(MainActivity.this, Register.class);
+            startActivity(register1);
         });
 
     }

@@ -18,6 +18,11 @@
         <activity android:name=".Register" />
         <activity android:name=".RegisterSuccessful"/>
         <activity android:name=".HomePage"/>
+        <activity android:name=".Profile"/>
+        <activity android:name=".ProfileUpdate"/>
+        <activity android:name=".PasswordChange"/>
+        <activity android:name=".Helpers"/>
+        <activity android:name=".InNeedGroup"/>
         <activity android:name=".MainActivity">
 
             <intent-filter>

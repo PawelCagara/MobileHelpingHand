@@ -9,16 +9,45 @@ import android.widget.Button;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.helpinghand.database.Database;
+import com.example.helpinghand.helpers.UserLoginCache;
+
+import java.sql.SQLException;
+
 public class HomePage extends AppCompatActivity {
 
-    Button logout;
-    Button profile;
+    private Button logout;
+    private Button profile;
+    private Button helpProviders;
+    private Button helpRevicers;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_page);
-        logout = (Button) findViewById(R.id.buttonLogout);
-        profile = (Button) findViewById(R.id.buttonProfile);
+
+
+        Database db = new Database();
+        String user = UserLoginCache.getLoggedUser();
+
+        /*
+        try {
+            if(db.checkUserGroup(user)==0) {
+                setContentView(R.layout.home_page);
+            } else{
+                setContentView(R.layout.profile);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        
+         */
+        logout =  findViewById(R.id.buttonLogout);
+        profile =  findViewById(R.id.buttonProfile);
+        helpProviders =  findViewById(R.id.buttonHelpers);
+        helpRevicers =  findViewById(R.id.buttonNeedHelper);
+
+
 
 
         logout.setOnClickListener(v -> {
@@ -41,6 +70,22 @@ public class HomePage extends AppCompatActivity {
         profile.setOnClickListener(v -> {
             Intent profile = new Intent(HomePage.this, Profile.class);
             startActivity(profile);
+        });
+
+        helpProviders.setOnClickListener(v -> {
+            int setGroup = 1;
+            try {
+                db.setAsGiverOrReciver(user,setGroup);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            Intent helper = new Intent(HomePage.this, Helpers.class);
+            startActivity(helper);
+        });
+
+        helpRevicers.setOnClickListener(v ->{
+            Intent InNeedOfHelper = new Intent(HomePage.this, InNeedGroup.class);
+            startActivity(InNeedOfHelper);
         });
 
     }

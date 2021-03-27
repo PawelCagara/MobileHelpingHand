@@ -1,6 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/editTextProfileEmial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="69dp"
+        android:layout_marginTop="112dp"
+        android:layout_marginBottom="23dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintBottom_toTopOf="@+id/editTextProfileFirstName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextProfileFirstName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="22dp"
+        android:ems="10"
+        android:hint="First Name"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/editTextPostcode"
+        app:layout_constraintStart_toStartOf="@+id/editTextProfileEmial"
+        app:layout_constraintTop_toBottomOf="@+id/editTextProfileEmial" />
+
+    <EditText
+        android:id="@+id/editTextPostcode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="23dp"
+        android:ems="10"
+        android:hint="Postcode"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/buttonProfileUpdate"
+        app:layout_constraintStart_toStartOf="@+id/editTextProfileFirstName"
+        app:layout_constraintTop_toBottomOf="@+id/editTextProfileFirstName" />
+
+    <Button
+        android:id="@+id/buttonProfileUpdate"
+        android:layout_width="189dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="351dp"
+        android:text="Confirm update"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/editTextPostcode"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPostcode" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,12 +16,9 @@ public class RegisterSuccessful extends AppCompatActivity {
 
         Button login = (Button) findViewById(R.id.loginButton);
 
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent login = new Intent(RegisterSuccessful.this, Login.class);
-                startActivity(login);
-            }
+        login.setOnClickListener(v -> {
+            Intent login1 = new Intent(RegisterSuccessful.this, Login.class);
+            startActivity(login1);
         });
     }
 }

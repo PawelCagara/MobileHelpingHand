@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.helpinghand.database.Database;
+import com.example.helpinghand.helpers.UserLoginCache;
+import com.example.helpinghand.model.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -19,8 +21,8 @@ import java.sql.SQLException;
 
 public class Login extends AppCompatActivity {
 
-    EditText username;
-    EditText password;
+    private EditText username;
+    private EditText password;
 
 
 
@@ -39,41 +41,36 @@ public class Login extends AppCompatActivity {
 
 
 
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String loginUsername = username.getText().toString();
-                String loginPassword = password.getText().toString();
-                Database user = new Database();
+        login.setOnClickListener(v -> {
+            String loginUsername = username.getText().toString();
+            String loginPassword = password.getText().toString();
+            Database user = new Database();
 
-                if (loginUsername.isEmpty() || loginPassword.isEmpty()){
-                    Toast.makeText(Login.this, "All fields are required",
-                            Toast.LENGTH_SHORT).show();
-                } else{
-                    try {
-                        int c = user.checkUsernameAndPassword(loginUsername,loginPassword);
-                        if(c>0){
-                            Intent loginSuccessful = new Intent(Login.this, HomePage.class);
-                            startActivity(loginSuccessful);
-                        } else{
-                            Toast.makeText(getApplicationContext(), "LOGIN DETAILS ARE INCORRECT", Toast.LENGTH_LONG).show();
-                        }
-                    } catch (SQLException throwables) {
-                        throwables.printStackTrace();
+            if (loginUsername.isEmpty() || loginPassword.isEmpty()){
+                Toast.makeText(Login.this, "All fields are required",
+                        Toast.LENGTH_SHORT).show();
+            } else{
+                try {
+                    int c = user.checkUsernameAndPassword(loginUsername,loginPassword);
+                    if(c>0){
+                        Intent loginSuccessful = new Intent(Login.this, HomePage.class);
+                        UserLoginCache.login(loginUsername);
+                        startActivity(loginSuccessful);
+                    } else{
+                        Toast.makeText(getApplicationContext(), "LOGIN DETAILS ARE INCORRECT", Toast.LENGTH_LONG).show();
                     }
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
                 }
-
-
-
             }
+
+
+
         });
 
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent register = new Intent(Login.this, Register.class);
-                startActivity(register);
-            }
+        register.setOnClickListener(v -> {
+            Intent register1 = new Intent(Login.this, Register.class);
+            startActivity(register1);
         });
 
 

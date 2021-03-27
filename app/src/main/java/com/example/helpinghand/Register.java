@@ -23,7 +23,7 @@ public class Register extends AppCompatActivity {
     private EditText username;
     private EditText email;
     private EditText password;
-    private Button register;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,65 +32,69 @@ public class Register extends AppCompatActivity {
 
 
 
-        Button login = (Button) findViewById(R.id.loginButton);
-        Button register = (Button) findViewById(R.id.registerUserButton);
-        username = (EditText) findViewById(R.id.registerUsername);
-        password = (EditText) findViewById(R.id.registerPassword);
-        email = (EditText) findViewById(R.id.registerEmail);
+        Button login = findViewById(R.id.loginButton);
+        Button register = findViewById(R.id.registerUserButton);
+        username = findViewById(R.id.registerUsername);
+        password = findViewById(R.id.registerPassword);
+        email = findViewById(R.id.registerEmail);
 
-        register.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                String user_name = username.getText().toString().trim();
-                String txt_password = password.getText().toString().trim();
-                String email_address = email.getText().toString().trim();
-                Database user = new Database();
+        register.setOnClickListener(v -> {
 
-                if(TextUtils.isEmpty(user_name) || TextUtils.isEmpty(email_address) || TextUtils.isEmpty(txt_password)) {
-                    Toast.makeText(Register.this, "All fields are required",
+            String user_name = username.getText().toString().trim();
+            String txt_password = password.getText().toString().trim();
+            String email_address = email.getText().toString().trim();
+            String firstname = "";
+            String postcode = "";
+            int group = 0;
+            int admin =0;
+
+            Database user = new Database();
+
+            if(TextUtils.isEmpty(user_name) || TextUtils.isEmpty(email_address) || TextUtils.isEmpty(txt_password)) {
+                Toast.makeText(Register.this, "All fields are required",
+                        Toast.LENGTH_SHORT).show();
+            } else {
+
+                if(!Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches()){
+                    Toast.makeText(Register.this, "Email invalid",
                             Toast.LENGTH_SHORT).show();
-                } else {
-
-                    if(!Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches()){
-                        Toast.makeText(Register.this, "Email invalid",
-                                Toast.LENGTH_SHORT).show();
-                    } else{
-                        try {
-                            int c = user.checkIfUserExist(user_name);
-                            if(c>0){
-                                Toast.makeText(getApplicationContext(), "USER ALREADY EXITS", Toast.LENGTH_LONG).show();
+                } else{
+                    try {
+                        int c = user.checkIfUserExist(user_name);
+                        if(c>0){
+                            Toast.makeText(getApplicationContext(), "USER ALREADY EXITS", Toast.LENGTH_LONG).show();
+                        } else{
+                            if(txt_password.length()<6 || txt_password.length()>100){
+                                Toast.makeText(getApplicationContext(), "Password must be 6-100 characters long", Toast.LENGTH_LONG).show();
                             } else{
-                                user.addUser(user_name,email_address,txt_password);
+                                user.addUser(user_name,email_address,txt_password,firstname,postcode,group,admin);
                                 Intent registrationSuccessful = new Intent(Register.this, RegisterSuccessful.class);
                                 startActivity(registrationSuccessful);
                             }
-
-
-
-
-                        } catch (SQLException throwables) {
-                            throwables.printStackTrace();
                         }
 
+
+
+
+                    } catch (SQLException throwables) {
+                        throwables.printStackTrace();
                     }
-
-
 
                 }
 
 
 
             }
+
+
+
         });
 
 
 
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent login = new Intent(Register.this, Login.class);
-                startActivity(login);
-            }
+        login.setOnClickListener(v -> {
+            Intent login1 = new Intent(Register.this, Login.class);
+            startActivity(login1);
         });
 
 
