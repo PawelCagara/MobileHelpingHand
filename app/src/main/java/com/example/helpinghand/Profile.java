@@ -21,6 +21,7 @@ public class Profile extends AppCompatActivity {
         wellcomeMessage = findViewById(R.id.textViewProfilePage);
         Button updateProfile = findViewById(R.id.buttonChangeProfile);
         Button changePassword = findViewById(R.id.buttonChangePassword);
+        Button changeGroup = findViewById(R.id.buttonProfileChangeGroup);
 
         String user = UserLoginCache.getLoggedUser();
         wellcomeMessage.setText("Hello "+user+", you can update your details here");
@@ -34,5 +35,12 @@ public class Profile extends AppCompatActivity {
             Intent updatePassword = new Intent(Profile.this, PasswordChange.class);
             startActivity(updatePassword);
         });
+
+        changeGroup.setOnClickListener(v-> {
+            Intent updateGroup = new Intent(Profile.this, ChangeGroup.class);
+            startActivity(updateGroup);
+        });
     }
+
+
 }

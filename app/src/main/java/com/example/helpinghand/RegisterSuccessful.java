@@ -14,7 +14,7 @@ public class RegisterSuccessful extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_successful);
 
-        Button login = (Button) findViewById(R.id.loginButton);
+        Button login = findViewById(R.id.loginButton);
 
         login.setOnClickListener(v -> {
             Intent login1 = new Intent(RegisterSuccessful.this, Login.class);

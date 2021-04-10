@@ -10,7 +10,7 @@
         android:layout_width="170dp"
         android:layout_height="0dp"
         android:layout_marginTop="70dp"
-        android:layout_marginBottom="69dp"
+        android:layout_marginBottom="70dp"
         app:layout_constraintBottom_toTopOf="@+id/buttonChangeProfile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,10 +31,21 @@
         android:id="@+id/buttonChangePassword"
         android:layout_width="197dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="403dp"
+        android:layout_marginBottom="22dp"
         android:text="Change password"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/buttonProfileChangeGroup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonChangeProfile" />
+
+    <Button
+        android:id="@+id/buttonProfileChangeGroup"
+        android:layout_width="190dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="330dp"
+        android:text="ChangeGroup"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonChangePassword" />
 </androidx.constraintlayout.widget.ConstraintLayout>

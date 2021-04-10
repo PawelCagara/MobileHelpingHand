@@ -9,12 +9,11 @@
         android:id="@+id/textView"
         android:layout_width="238dp"
         android:layout_height="133dp"
-        android:layout_marginBottom="104dp"
-        android:text="Login successful"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="158dp"
+        android:text="Wellcome. Please choose to which group you want to belong. Do you want to help? Or are you in need of some kind of assistance? You can change later in your profile to which group you want to belong."
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonLogout"
@@ -38,20 +37,23 @@
 
     <Button
         android:id="@+id/buttonHelpers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="54dp"
-        android:layout_marginTop="178dp"
+        android:layout_width="144dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="56dp"
         android:text="I want to help"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonNeedHelper"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/buttonNeedHelper" />
 
     <Button
         android:id="@+id/buttonNeedHelper"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
+        android:layout_width="0dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="73dp"
+        android:layout_marginEnd="29dp"
         android:text="I need some help"
-        app:layout_constraintBaseline_toBaselineOf="@+id/buttonHelpers"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonHelpers"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

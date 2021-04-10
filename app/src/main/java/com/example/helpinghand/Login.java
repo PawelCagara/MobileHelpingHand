@@ -33,10 +33,10 @@ public class Login extends AppCompatActivity {
 
 
 
-        Button login = (Button) findViewById(R.id.loginUserButton);
-        Button register = (Button) findViewById(R.id.registerButton);
-        username = (EditText) findViewById(R.id.loginUsername);
-        password = (EditText) findViewById(R.id.loginPassword);
+        Button login = findViewById(R.id.loginUserButton);
+        Button register = findViewById(R.id.registerButton);
+        username =  findViewById(R.id.loginUsername);
+        password =  findViewById(R.id.loginPassword);
 
 
 
