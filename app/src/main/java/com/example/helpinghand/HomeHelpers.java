@@ -1,3 +1,4 @@
+
 package com.example.helpinghand;
 
 import android.content.Intent;
@@ -13,6 +14,8 @@ public class HomeHelpers extends AppCompatActivity {
 
     private Button logout;
     private Button profile;
+    private Button map;
+    private Button test;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +23,8 @@ public class HomeHelpers extends AppCompatActivity {
 
         logout =  findViewById(R.id.buttonLogoutHelpers);
         profile =  findViewById(R.id.buttonProfileHelpers);
+        map = findViewById(R.id.buttonGoToMap);
+        test = findViewById(R.id.buttonTest);
 
         logout.setOnClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(HomeHelpers.this);
@@ -41,6 +46,18 @@ public class HomeHelpers extends AppCompatActivity {
             Intent profile = new Intent(HomeHelpers.this, Profile.class);
             startActivity(profile);
         });
+
+        map.setOnClickListener(v ->{
+            Intent maps = new Intent(HomeHelpers.this, MapsActivity.class);
+            startActivity(maps);
+        });
+
+        test.setOnClickListener(v ->{
+            Intent test = new Intent(HomeHelpers.this, Test.class);
+            startActivity(test);
+        });
+
+
 
     }
 }

@@ -1,3 +1,4 @@
+
 package com.example.helpinghand.database;
 
 import android.database.Cursor;
@@ -150,6 +151,22 @@ public class Database {
         int groupNumber = query.getInt(1);
         closeConnection();
         return groupNumber;
+    }
+
+    public ArrayList<String> checkPostcode() throws SQLException {
+
+        ArrayList<String> userPostcode = new ArrayList<>();
+        openConnection();
+        ResultSet query =stmt.executeQuery ("SELECT postcode FROM users where setGroup=2");
+
+        while(query.next()){
+            String postcode = query.getString(1);
+
+            userPostcode.add(postcode);
+
+        }
+        closeConnection();
+        return userPostcode;
     }
 
 

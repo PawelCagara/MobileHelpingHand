@@ -1,9 +1,11 @@
+
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.helpinghand">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -13,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HelpingHand">
 
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCdt-iQdK_cdnqplCTpbe48ajOuVgVqDhw" />
 
         <activity android:name=".Login" />
         <activity android:name=".Register" />
@@ -24,7 +29,10 @@
         <activity android:name=".HomeHelpers"/>
         <activity android:name=".HomeInNeed"/>
         <activity android:name=".ChangeGroup"/>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MapsActivity"/>
+        <activity android:name=".Test"/>
+        <activity
+            android:name=".MainActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,5 +41,6 @@
             </intent-filter>
         </activity>
     </application>
+
 
 </manifest>
