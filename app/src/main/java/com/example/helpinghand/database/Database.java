@@ -1,3 +1,4 @@
+
 package com.example.helpinghand.database;
 
 import android.database.Cursor;
